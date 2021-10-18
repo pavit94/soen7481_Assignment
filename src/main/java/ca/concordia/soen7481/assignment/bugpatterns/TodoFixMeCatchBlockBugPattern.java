@@ -2,23 +2,23 @@ package ca.concordia.soen7481.assignment.bugpatterns;
 
 import java.io.File;
 
-public class EqualsHashcodeBugPattern extends BugPattern {
-    public EqualsHashcodeBugPattern(int line, File file, String functionName) {
+public class TodoFixMeCatchBlockBugPattern extends BugPattern {
+    public TodoFixMeCatchBlockBugPattern(int line, File file, String functionName) {
         super(line, file, functionName);
     }
 
     @Override
     public String getIdentifier() {
-        return "HE";
+        return "UF";
     }
 
     @Override
     public String getName() {
-        return "Equals Hashcode";
+        return "Todo FixMe Catch Block";
     }
 
     @Override
     public String getDescription() {
-        return "Class defines hashCode() but not equals()";
+        return "Unfinished exception handling code";
     }
 }

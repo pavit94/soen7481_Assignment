@@ -12,14 +12,14 @@ public class TestEqualHashcode {
 
 	@Test
 	public void testEqualWithHashcode() {
-        List<BugPattern> bugPatterns = new EqualsHashcodeChecker().check(new File("filesToParse/EqualsHashcode/EqualsWithHashcode.java"));
+        List<BugPattern> bugPatterns = new EqualsHashcodeChecker().check(new File("filesToParse/EqualsHashcode/HashCodeWithEquals.java"));
 
 		Assert.assertEquals(0, bugPatterns.size());
 	}
 
 	@Test
 	public void testEqualWithoutHashcode() {
-		List<BugPattern> bugPatterns = new EqualsHashcodeChecker().check(new File("filesToParse/EqualsHashcode/EqualsWithoutHashcode.java"));
+		List<BugPattern> bugPatterns = new EqualsHashcodeChecker().check(new File("filesToParse/EqualsHashcode/HashCodeWithoutEquals.java"));
 
 		Assert.assertEquals(1, bugPatterns.size());
 		Assert.assertEquals("EqualsWithoutHashcode.java", bugPatterns.get(0).getFilename());

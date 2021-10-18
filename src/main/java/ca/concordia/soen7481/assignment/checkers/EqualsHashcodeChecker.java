@@ -31,22 +31,23 @@ public class EqualsHashcodeChecker implements Checker {
                     @Override
                     public void visit(MethodDeclaration md, Object arg) {
                         super.visit(md, arg);
-                        if (md.getNameAsString().equals("equals") && md.getTypeAsString().equals("boolean")) {
+                        if (md.getNameAsString().equals("hashCode") &&
+                                md.getTypeAsString().equals("int") &&
+                                md.getParameters().size() == 0) {
+                                hcFound[0] = true;
+                                line[0] = (md.getRange().isPresent() ? md.getRange().get().begin.line : 0);
+                        } else if (md.getNameAsString().equals("equals") && md.getTypeAsString().equals("boolean")) {
                             NodeList<Parameter> nodes = md.getParameters();
                             if ((nodes.size() == 1) && (nodes.get(0).getTypeAsString().equals("Object"))) {
                                 equalsFound[0] = true;
                                 // Get line
-                                line[0] = (md.getRange().isPresent() ? md.getRange().get().begin.line : 0);
+
                             }
-                        } else if (md.getNameAsString().equals("hashCode") &&
-                                md.getTypeAsString().equals("int") &&
-                                md.getParameters().size() == 0) {
-                                hcFound[0] = true;
-                        }
+                        } 
                     }
                 }.visit(JavaParser.parse(file), null);
 
-                if (equalsFound[0] && !hcFound[0]) {
+                if (hcFound[0]  && !equalsFound[0]) {
                     bugPatterns.add(new EqualsHashcodeBugPattern(line[0], file, "equals"));
                 }
             } catch (IOException e) {
