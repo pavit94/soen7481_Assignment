@@ -3,4 +3,5 @@ public class EqualsWithotNullArgumentCheck {
         return (o instanceof Person) && 
                this.getName().equals(((Person)o).getName());
     }
+    
 }
