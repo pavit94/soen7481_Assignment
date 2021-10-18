@@ -6,12 +6,11 @@ public class InadequateLoggingInformationInCatchBlocks {
 	        try {
 	        	
 	        }
-	        catch(ArrayIndexOutOfBoundsException e) {
-	        	System.out.println("hello");
-	        }
-	        catch(ArrayIndexOutOfBoundsException e) {
-	        	System.out.println("hello");
-	        }
+		 catch (AlreadyClosedException closedException) {
+			s_logger.warn("Connection to AMQP service is lost.");
+			} catch (ConnectException connectException) {
+			s_logger.warn("Connection to AMQP service is lost.");
+			}
 	    }
 	    public static void another(String[] args) {
 

@@ -1,5 +1,5 @@
 /**
- * A test function that does not have a DUPLICATE LOGGING INFORMATION IN catch block of same try or catch block has no logging information
+ * A sample test function that does not have a DUPLICATE LOGGING INFORMATION IN catch block of same try or catch block has no logging information
  */
 public class InadequateLoggingInformationInCatchBlocks {
     public static void anotherMain(String[] args) {
@@ -7,10 +7,10 @@ public class InadequateLoggingInformationInCatchBlocks {
         	
         }
         catch(ArrayIndexOutOfBoundsException e) {
-        	System.out.println("hello");
+        	System.out.println("Array Index Out of Bound Exception.");
         }
         catch(ArrayIndexOutOfBoundsException e) {
-        	System.out.println("hello1");
+        	System.out.println("Exception occured!!");
         }
     }
     public static void another(String[] args) {
