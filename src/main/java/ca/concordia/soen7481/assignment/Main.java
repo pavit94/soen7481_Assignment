@@ -29,6 +29,11 @@ public class Main {
         // Equals Hashcode
         Checker checker = new EqualsHashcodeChecker();
         bugPatterns.addAll(checker.check(projectDir));
+
+        
+        // Equals Hashcode
+        checker = new EqualsNullChecker();
+        bugPatterns.addAll(checker.check(projectDir));
    
         //Inadequate logging information in catch blocks
         checker = new DuplicateLoggingStatementInCatchBlockOfSameTryChecker();
